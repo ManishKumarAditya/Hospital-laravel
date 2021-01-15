@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             //add by laravel developer
             $table->boolean('isAdmin')->default(false);
+            $table->boolean('isDoctor')->default(false);
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();

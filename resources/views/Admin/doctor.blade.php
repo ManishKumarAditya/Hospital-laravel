@@ -29,6 +29,7 @@ this is|Dashboard
                     <th>address</th>
                     <th>specialist</th>
                     <th>treatment</th>
+                    <th>Action</th>
                 </tr>
                 @foreach ($doctors as $doctor)
                 <tr>
@@ -42,7 +43,12 @@ this is|Dashboard
                     <td>{{$doctor->address}}</td>
                     <td>{{$doctor->specialist}}</td>
                     <td>{{$doctor->treatment}}</td>
+                    <td>
+                        <a href="" class="btn btn-danger">No.Patients</a>
+                    </td>
+                  
                 </tr>
+             
                 @endforeach
             </table>
         </div>

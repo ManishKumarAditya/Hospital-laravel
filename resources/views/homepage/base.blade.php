@@ -14,23 +14,31 @@
 <body>
     <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a href="" class="navbar-brand">Hospital Management</a>
+            <a href="{{route('index')}}" class="navbar-brand">Hospital Management</a>
             <ul class="navbar-nav ms-auto">
                 @auth
-                <li class="nav-item"><a href="{{route('apply')}}" class="nav-link">Apply for Hospital</a></li>
                 <li class="nav-item">
                     <form action="{{route('logout')}}" method="POST">
                         @csrf
                         <input type="submit" class="btn btn-dark text-white" value="logout">
                     </form>
                 </li>
+                <li class="nav-item"><a href="{{route('profile')}}" class="nav-link">My profile</a></li>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      More
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li><a href="{{route('apply')}}" class="dropdown-item">Be my partner as a doctor</a></li>
+                      <li><button class="dropdown-item" type="button">Details</button></li>
+                      
+                    </ul>
+                  </div>
                 @endauth
                 @guest
                 <li class="nav-item"><a href="{{route('login')}}" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="{{route('register')}}" class="nav-link">Register</a></li>
                 @endguest
-
-
             </ul>
         </div>
     </nav>

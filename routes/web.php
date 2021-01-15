@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
+use App\Models\Doctor;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,17 +16,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',function(){
+return view('homepage.index',["data"=>Doctor::all()]);
+})->name('index');
 
-
-Route::get('/',[DoctorController::class,"index"])->name('index');
+//Route::get('/',[DoctorController::class,"index"])->name('index');
 Route::get('/apply',[DoctorController::class,"apply"])->name('apply');
 Route::post('/apply',[DoctorController::class,"applyStore"])->name('applyStore');
+Route::get('/Profile',[DoctorController::class,"profile"])->name('profile');
 
 Route::get('/patient_login',[PatientController::class,"applyPatient"])->name('applyPatient');
 Route::post('/patient_login',[PatientController::class,"applyInsert"])->name('applyInsert');
+Route::get('/Patientprofile',[PatientController::class,"profileP"])->name('Patientprofile');
 
 Route::prefix('admin')->group(function(){
-
     Route::get('/dashboard',[AdminController::class,"dashboard"])->name('admin.dashboard');
     Route::get('/doctors',[AdminController::class,"doctors"])->name('doctors');
     Route::get('/patients',[AdminController::class,"patients"])->name('patients');

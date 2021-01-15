@@ -4,21 +4,45 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Patient;
 
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
-    public function index(){
-      
-        return view('homepage.index',['data'=>Doctor::all()]);
+    public function __construct(){
+        $this->middleware('auth');
+    }
+  
+    public function profile(){
+        if(User::where([['id',Auth::id()],['isAdmin',TRUE]])->exists()){
+            return redirect()->route('admin.dashboard');
+        }
+
+        //check if data about doctor not exists     
+        
+        $data['doctors']=Doctor::where('user_id',Auth::id())->firstOrFail();
+        return view('homepage.profile',$data);
+
     }
     public function apply(){
+        if(Patient::where('user_id',Auth::id())->exists()){
+            return redirect()->route('Patientprofile');
+        }
+     
+        if(Doctor::where('user_id',Auth::id())->exists()){
+            return redirect()->route('profile');
+        }
         return view('homepage.drapply');
     }
-
-  
     public function applyStore(Request $request){
+
+        if(Patient::where('user_id',Auth::id())->exists()){
+            return redirect()->route('Patientprofile');
+        }
+        if(Doctor::where('user_id',Auth::id())->exists()){
+            return redirect()->route('profile');
+        }
         $request->validate([
 
             'name'=>'required',
@@ -48,6 +72,6 @@ class DoctorController extends Controller
             'user_id'=>Auth::id()
 
         ]);
-        return redirect()->back(); 
+        return redirect()->route('profile'); 
     }
 }

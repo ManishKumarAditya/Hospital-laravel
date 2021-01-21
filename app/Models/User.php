@@ -55,15 +55,18 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function doctors(){
+        return $this->hasMany('App\Models\Doctor');
+    }
+
+     public function patients(){
+        return $this->hasMany('App\Models\Patient','user_id','id');
+     }
+     
     protected $appends = [
         'profile_photo_url',
     ];
-    public function doctor(){
-        return $this->hasOne('App\Models\Doctor','user_id','id');
-    }
-    public function patients(){
-        return $this->hasOne('App\Models\Patient','user_id','id');
-    }
+  
 
     
 }

@@ -8,32 +8,29 @@
                         <table class="table-bordered table">
                             <tr>
                                 <th>Name</th>
-                                <td>{{$patients->name}}</td>
+                                <td>{{$patients->getUser->name}}</td>
                             </tr>
                             <tr>
                                 <th>Contact</th>
                                 <td>{{$patients->contact}}</td>
                             </tr>
-                          
+                            <tr>
+                                <th>Email</th>
+                                <td>{{$patients->getUser->email}}</td>
+                            </tr>
                             <tr>
                                 <th>Disease</th>
                                 <td>{{$patients->disease}}</td>
                             </tr>
-                            <tr>
-                                <th>Email</th>
-                                <td>{{$patients->email}}</td>
-                            </tr>
-                            
+                          
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8">
-                <div class="container  p-4 bg-light text-dark">
-                    <h2 class="display-4">Welcome to my Hospital Managment</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi amet minus accusamus doloremque cupiditate! Minima amet, eos eaque voluptate sit dolorem soluta eius voluptatem neque sunt obcaecati. Optio, earum nisi.</p>
-                </div>
-            </div>
+         <div class="col-lg-8 p-4 text-white bg-secondary">
+            <h2 class="display-2">Welcome to my Hospital Management</h2>
+            <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut perferendis facere itaque consectetur! Tenetur nam cupiditate, esse in ipsa adipisci praesentium illum hic nemo exercitationem, dignissimos autem sequi animi illo.</p>
+         </div>
         </div>
     </div>
 @endsection

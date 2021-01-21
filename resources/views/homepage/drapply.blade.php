@@ -11,21 +11,24 @@
                 <div class="card-body bg-light">
                     <form action="{{route('applyStore')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="mb-3">
-                            <label for="">Name</label>
-                            <input type="text" name="name" class="form-control" value="{{old('name')}}">
-                            <small class="text-danger">{{$errors->first('name')}}</small>
-                        </div>
+                      
                         <div class="mb-3">
                             <label for="">Contact</label>
                             <input type="text" name="contact" class="form-control" value="{{old('contact')}}">
                             <small class="text-danger">{{$errors->first('contact')}}</small>
                         </div>
+                      
                         <div class="mb-3">
-                            <label for="">Email</label>
-                            <input type="text" name="email" class="form-control" value="{{old('email')}}">
-                            <small class="text-danger">{{$errors->first('email')}}</small>
+                            <label for="">gender</label>
+                            <select class="form-control" name="gender">
+                                <option disabled selected>---Select---</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="others">Others</option>
+                            </select>
+                            <small class="text-danger">{{$errors->first('gender')}}</small>
                         </div>
+                       
                         <div class="mb-3">
                             <label for="">Experience</label>
                             <input type="text" name="experience" class="form-control" value="{{old('experience')}}">
@@ -54,7 +57,22 @@
                         <div class="mb-3">
                             <label for="">Specialist</label>
                             <input type="text" name="specialist" class="form-control" value="{{old('specialist')}}">
-                            <small class="text-danger">{{$errors->first('name')}}</small>
+                            <small class="text-danger">{{$errors->first('specialist')}}</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">fees</label>
+                            <input type="text" name="fees" class="form-control" value="{{old('fees')}}">
+                            <small class="text-danger">{{$errors->first('fees')}}</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">gender</label>
+                            <input type="text" name="gender" class="form-control" value="{{old('gender')}}">
+                            <small class="text-danger">{{$errors->first('gender')}}</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">designation</label>
+                            <input type="text" name="designation" class="form-control" value="{{old('designation')}}">
+                            <small class="text-danger">{{$errors->first('designation')}}</small>
                         </div>
                         <div class="mb-3">
                             <label for="">Treatment</label>

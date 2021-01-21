@@ -18,12 +18,22 @@ this is|Dashboard
         </div>
         <div class="col-lg-9">
             <div class="row">
+                <h3 class="bg-success lead display-5 text-white text-center p-3">All details of hospitals are following:-</h3>
                 <div class="col-lg-4">
                     <div class="card bg-light">
                         <div class="card-body">
-                            <h3 class="lead">Total Doctors present:-</h3>
+                            <h3 class="">Total Doctors:--</h3>
                             <hr>
-                            <h6 class="">{{$doctors}}</h6> 
+                            <h4 class="">{{$doctors}}</h4> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body bg-info">
+                            <h3 class="">All Patients:-</h3>
+                            <hr>
+                            <h4 class="">{{$patients}}</h4> 
                         </div>
                     </div>
                 </div>

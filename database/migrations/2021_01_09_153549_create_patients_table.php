@@ -15,13 +15,15 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('contact');
             $table->string('address');
-            $table->string('age');
-            $table->string('email'); 
-            $table->string('disease');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('doctor_id')->constrained();
+            $table->string('age');
+            $table->string('gender');
+            $table->string('image')->nullable();
+            $table->text('desc');
+            $table->string('disease');
             $table->timestamps(); 
         });
     }

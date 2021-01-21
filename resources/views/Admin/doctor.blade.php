@@ -46,9 +46,7 @@ this is|Dashboard
                     <td>
                         <a href="" class="btn btn-danger">No.Patients</a>
                     </td>
-                  
                 </tr>
-             
                 @endforeach
             </table>
         </div>

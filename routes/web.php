@@ -25,8 +25,8 @@ Route::get('/apply',[DoctorController::class,"apply"])->name('apply');
 Route::post('/apply',[DoctorController::class,"applyStore"])->name('applyStore');
 Route::get('/Profile',[DoctorController::class,"profile"])->name('profile');
 
-Route::get('/patient_login',[PatientController::class,"applyPatient"])->name('applyPatient');
-Route::post('/patient_login',[PatientController::class,"applyInsert"])->name('applyInsert');
+Route::get('/patient_apply/{id}',[PatientController::class,"applyPatient"])->name('applyPatient');
+Route::post('/patient_apply/{id}',[PatientController::class,"applyInsert"])->name('applyInsert');
 Route::get('/Patientprofile',[PatientController::class,"profileP"])->name('Patientprofile');
 
 Route::prefix('admin')->group(function(){

@@ -17,11 +17,12 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->boolean('isAdmin')->default(false);
+            $table->boolean('isDoctor')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             //add by laravel developer
-            $table->boolean('isAdmin')->default(false);
-            $table->boolean('isDoctor')->default(false);
+           
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();

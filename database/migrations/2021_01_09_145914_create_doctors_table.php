@@ -15,17 +15,19 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('contact');
-            $table->string('email');
+            $table->foreignId('user_id')->constrained();
             $table->string('address');
             $table->string('state');
             $table->string('country');
+            $table->string('gender');
             $table->string('dp');
             $table->string('specialist');
             $table->string('treatment');
             $table->string('experience');
-            $table->foreignId('user_id')->constrained();
+            $table->string('designation');
+            $table->string('fees');
+           
             $table->timestamps();
         });
     }

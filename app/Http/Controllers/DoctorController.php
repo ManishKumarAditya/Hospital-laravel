@@ -10,9 +10,7 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth');
-    }
+   
   
     public function profile(){
         if(User::where([['id',Auth::id()],['isAdmin',TRUE]])->exists()){
@@ -20,14 +18,17 @@ class DoctorController extends Controller
         }
 
         //check if data about doctor not exists     
+        $data['doctor'] = Doctor::where('user_id', Auth::id())->first();
+
         
         $data['doctors']=Doctor::where('user_id',Auth::id())->firstOrFail();
+       
         return view('homepage.profile',$data);
 
     }
     public function apply(){
         if(Patient::where('user_id',Auth::id())->exists()){
-            return redirect()->route('Patientprofile');
+            return redirect()->route('profile');
         }
      
         if(Doctor::where('user_id',Auth::id())->exists()){
@@ -44,24 +45,22 @@ class DoctorController extends Controller
             return redirect()->route('profile');
         }
         $request->validate([
-
-            'name'=>'required',
             'contact'=>'required',
-            'email'=>'required|email',
             'experience'=>'required',
             'state'=>'required',
             'country'=>'required',
             'address'=>'required',
+            'gender'=>'required',
             'dp'=>'required|mimes:jpg,png',
             'specialist'=>'required',
             'treatment'=>'required',
+            'fees'=>'required',
+            'designation'=>'required',
         ]);
         $filename=time() . "." .$request->dp->extension();
         $request->dp->move(public_path('images'),$filename);
         Doctor::create([
-            'name'=>$request->name,
             'contact'=>$request->contact,
-            'email'=>$request->email,
             'experience'=>$request->experience,
             'state'=>$request->state,
             'country'=>$request->country,
@@ -69,6 +68,9 @@ class DoctorController extends Controller
             'dp'=>$filename,
             'specialist'=>$request->specialist,
             'treatment'=>$request->treatment,
+            'fees'=>$request->fees,
+            'gender'=>$request->gender ,
+            'designation'=>$request->designation,
             'user_id'=>Auth::id()
 
         ]);

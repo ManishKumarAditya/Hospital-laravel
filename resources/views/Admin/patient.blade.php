@@ -7,17 +7,17 @@ this is|Dashboard
     <div class="row">
         <div class="col-lg-3">
             <div class="list-group">
-                <a href="{{route('admin.dashboard')}}" class="list-group-item list-group-item-action bg-danger text-white">Dashboard</a>
+                <a href="{{route('admin.dashboard')}}" class="list-group-item list-group-item-action bg-primary text-white">Dashboard</a>
                 <a href="{{route('doctors')}}" class="list-group-item list-group-item-action">Doctors</a>
                 <a href="{{route('patients')}}" class="list-group-item list-group-item-action">Patient</a>
                 <form action="{{route('logout')}}" method="POST">
-                    <input type="submit" class="list-group-item list-group-item-action bg-secondary text-white ms-2" value="logout">
+                    <input type="submit" class="list-group-item list-group-item-action bg-dark text-white" value="logout">
                     @csrf
                 </form>
             </div>
         </div>
         <div class="col-lg-9">
-            <h3 class="lead bg-primary p-3 text-center text-white">Patients details</h3>
+            <h3 class="text-center p-4 text-white"  style="background-color: rgb(8, 158, 151)">Patients Details</h3>
             <table class="table table-boderded table-striped table-hover">
                 <tr>
                     <th>id</th>

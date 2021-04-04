@@ -31,4 +31,17 @@ class AdminController extends Controller
         $data['patients']=Patient::all();
         return view('Admin.patient',$data);
     }
+    public function drprofile(Request $request){
+        $data['patients']=Patient::all();
+        return view('Admin.patientrecord',$data);
+    }
+    public function editStatus(Request $request){
+        //echo $request->user
+        User::find($request->u)->update([
+            'isDoctor'=>TRUE,
+
+        ]);
+        return redirect()->back();
+    }
+
 }

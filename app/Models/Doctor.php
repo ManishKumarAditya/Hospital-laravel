@@ -13,7 +13,7 @@ class Doctor extends Model
        return $this->hasOne('App\Models\User','id','user_id');
    }
    public function getPatients(){
-       return $this->hasMany('App\MOdels\Patient','doctor_id','id');
+       return $this->hasMany('App\Models\Patient','doctor_id','id');
    }
 
 }

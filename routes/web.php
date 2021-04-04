@@ -33,6 +33,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/dashboard',[AdminController::class,"dashboard"])->name('admin.dashboard');
     Route::get('/doctors',[AdminController::class,"doctors"])->name('doctors');
     Route::get('/patients',[AdminController::class,"patients"])->name('patients');
+    Route::get('/drpatients',[AdminController::class,"drprofile"])->name('drpatient');
+    Route::put('/editstatus',[AdminController::class,"editStatus"])->name('editstatus');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
